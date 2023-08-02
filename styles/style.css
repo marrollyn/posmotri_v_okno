@@ -91,7 +91,9 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 416px;
+  min-width: 399px;
+  max-width: 416px;
+  width: 100%;
 }
 
 .content__video-card {
