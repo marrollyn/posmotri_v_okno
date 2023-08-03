@@ -44,9 +44,9 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  max-width: 1140px;
-  max-height: 534px;
   gap: 30px;
+  max-width: 1140px;
+  width: 100%;
   margin: auto;
 }
 
@@ -63,7 +63,6 @@ ol {
 
 .result {
   width: 711px;
-  height: 534px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -86,7 +85,7 @@ ol {
 
 .content__list {
   height: 298px;
-  overflow: auto;
+  overflow-y: auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -100,8 +99,8 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 3px;
-  gap: 4px;
+  margin: 3px; /*отступы добавлены, чтобы помещалась обводка в состоянии фокуса*/
+  overflow-wrap: anywhere; /*добавила для карточки с Зеленоградском, иначе название города отодвигает картинку - сдвигается вся секция и макету не соответсвует*/
 }
 
 .content__video-card-thumbnail {
@@ -122,7 +121,7 @@ ol {
 }
 
 .search-form__fieldset-title {
-  font-family: "Fira Sans Condensed";
+  font-family: inherit;
   font-size: 18px;
   font-weight: 400;
   color: #fff;
@@ -154,7 +153,7 @@ ol {
 }
 
 .content__video-card-description {
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #fff;
@@ -182,7 +181,7 @@ ol {
   background-color: inherit;
   width: fit-content;
   min-width: 225px;
-  font-family: "Fira Sans Condensed";
+  font-family: inherit;
   font-size: 18px;
   font-weight: 400;
   color: #fff;
@@ -234,7 +233,7 @@ ol {
   border: 1px solid #fff;
   color: #fff;
   text-align: center;
-  font-family: "Fira Sans Condensed";
+  font-family: inherit;
   font-size: 18px;
   font-weight: 700;
   height: 34px;
@@ -246,13 +245,17 @@ ol {
   width: calc(100% - 4px);
 }
 
-.search-form__textfield:focus, 
-.search-form__textfield(:focus-visible) {
+.search-form__textfield:focus,
+.search-form__textfield:has(:focus-visible) {
   outline: none;
 }
 
 ::placeholder {
   letter-spacing: -0.01em;
+}
+
+.search-form__label:focus {
+  outline: none;
 }
 
 .search-form__label:has(:focus-visible) {
@@ -261,8 +264,19 @@ ol {
 }
 
 .search-form__label:has(:focus-visible) > .search-form__textfield {
+  border-top: 1px solid inherit;
+  border-bottom: 1px solid inherit;
+}
+
+.search-form__textfield:active {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
+}
+
+.search-form__label:has(:active) {
+  outline: none;
 }
 
 .search-form__checkbox-list > .search-form__label:hover {
