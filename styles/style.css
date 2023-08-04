@@ -67,7 +67,6 @@ ol {
   flex-direction: column;
   justify-content: flex-end;
   gap: 16px;
-  margin-bottom: 2px;
 }
 
 .result__video-container {
@@ -99,7 +98,6 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 3px; /*отступы добавлены, чтобы помещалась обводка в состоянии фокуса*/
   overflow-wrap: anywhere; /*добавила для карточки с Зеленоградском, иначе название города отодвигает картинку - сдвигается вся секция и макету не соответсвует*/
 }
 
@@ -128,7 +126,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: "Oswald", sans-serif;
   font-size: 75px;
   font-weight: 700;
   text-transform: uppercase;
@@ -143,6 +141,9 @@ ol {
 .content__card-link {
   text-decoration: none;
   color: #fff;
+  margin: 2px;
+  width: calc(100% - 4px);
+  display: block;
 }
 
 .content__video-card-title {
@@ -307,15 +308,13 @@ ol {
   text-underline-position: under;
 }
 
-.content__video-card:focus {
+.content__card-link:focus {
   outline: none;
 }
 
-.content__video-card:focus-visible {
+.content__card-link:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
-  border-radius: 0;
-  display: block;
 }
 
 .content__video-card:hover {
